@@ -109,7 +109,6 @@
         console.log('download speed: ' + client.downloadSpeed)
         console.log('progress: ' + (client.progress * 100))
         console.log('done: ' + (client.done * 100))
-        console.log('done: ' + (client))
 
 
         if (!client.done) {
@@ -123,6 +122,13 @@
         //fromJs.postMessage("hellowww");
 
     });
+
+
+    client.on('torrent', function (torrent) {
+        console.log('path: ' + (torrent.path))
+
+
+    })
 
 
 
