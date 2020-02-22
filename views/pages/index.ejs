@@ -84,12 +84,10 @@
         loop: { active: true }
     }
 
-
     const player = new Plyr('#player', {
-        debug: true,
+        options
         //controls: playerControls
     });
-
 
     client.add(torrentId, function (torrent) {
         let file = torrent.files.find(function (file) {
