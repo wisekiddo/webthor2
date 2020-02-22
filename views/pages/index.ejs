@@ -12,23 +12,17 @@
             padding: 0;
             background-color: #000000;
         }
-        .video-player {
-            height: 100%;
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        #player {
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
         }
 
     </style>
 </head>
 
 <body>
-<div class="video-player">
     <video id="player" controls></video>
-
-</div>
-
 </body>
 
 <script type="text/javascript">
