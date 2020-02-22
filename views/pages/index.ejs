@@ -91,22 +91,14 @@
             return file.name.endsWith('.mp4')
         });
         file.renderTo('video', {
-            autoplay: false,
-            muted: true
+            autoplay: true,
+            muted: false
         }, function callback() {
             console.log("ready to play! "+file);
 
 
         });
 
-        file.getBlobURL(function (err, url) {
-            if (err) throw err
-            var a = document.createElement('a')
-            a.download = file.name
-            a.href = url
-            a.textContent = 'Download ' + file.name
-            document.body.appendChild(a)
-        })
     });
 
     // var fromJs;
@@ -117,6 +109,7 @@
         console.log('download speed: ' + client.downloadSpeed)
         console.log('progress: ' + (client.progress * 100))
         console.log('done: ' + (client.done * 100))
+        console.log('done: ' + (client))
 
 
         if (!client.done) {
