@@ -36,7 +36,7 @@
     const urlParams = new URLSearchParams(queryString);
 
     const hash = urlParams.get('hash')
-    const magnets = "%26tr%3Dudp%3A%2F%2Fexplodie.org%3A6969%26tr%3Dudp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%26tr%3Dudp%3A%2F%2Ftracker.empire-js.us%3A1337%26tr%3Dudp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%26tr%3Dudp%3A%2F%2Ftracker.opentrackr.org%3A1337%26tr%3Dwss%3A%2F%2Ftracker.btorrent.xyz%26tr%3Dwss%3A%2F%2Ftracker.fastcast.nz%26tr%3Dwss%3A%2F%2Ftracker.openwebtorrent.com%26ws%3Dhttps%3A%2F%2Fwebtorrent.io%2Ftorrents%2F%26xs%3Dhttps%3A%2F%2Fwebtorrent.io%2Ftorrents%26tr%3Dudp%3A%2F%2Fopen.demonii.com%3A1337%2Fannounce%26tr%3Dudp%3A%2F%2Ftracker.openbittorrent.com%3A80%26tr%3Dudp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%26tr%3Dudp%3A%2F%2Fglotorrents.pw%3A6969%2Fannounce%26tr%3Dudp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce%26tr%3Dudp%3A%2F%2Ftorrent.gresille.org%3A80%2Fannounce%26tr%3Dudp%3A%2F%2Fp4p.arenabg.com%3A1337%26tr%3Dudp%3A%2F%2Ftracker.leechers-paradise.org%3A6969";
+    const magnets = "&tr=udp://explodie.org:6969&tr=udp://tracker.coppersurfer.tk:6969&tr=udp://tracker.empire-js.us:1337&tr=udp://tracker.leechers-paradise.org:6969&tr=udp://tracker.opentrackr.org:1337&tr=wss://tracker.btorrent.xyz&tr=wss://tracker.fastcast.nz&tr=wss://tracker.openwebtorrent.com&ws=https://webtorrent.io/torrents/&xs=https://webtorrent.io/torrents&tr=udp://open.demonii.com:1337/announce&tr=udp://tracker.openbittorrent.com:80&tr=udp://tracker.coppersurfer.tk:6969&tr=udp://glotorrents.pw:6969/announce&tr=udp://tracker.opentrackr.org:1337/announce&tr=udp://torrent.gresille.org:80/announce&tr=udp://p4p.arenabg.com:1337&tr=udp://tracker.leechers-paradise.org:6969";
     const magnetHeader = "magnet:?xt=urn:btih:";
 
     let client = new WebTorrent();
