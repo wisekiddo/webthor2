@@ -10,3 +10,17 @@
 <link rel="stylesheet" href="https://cdn.plyr.io/3.5.10/plyr.css" />
 <script src="https://cdn.plyr.io/3.5.10/plyr.js"></script>
 
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+    <system.webServer>
+        <httpProtocol>
+            <customHeaders>
+                <add name="Access-Control-Allow-Origin" value="*" />
+            </customHeaders>
+        </httpProtocol>
+        <staticContent>
+            <mimeMap fileExtension=".glb" mimeType="model/vnd.gltf.binary"/>
+        </staticContent>
+    </system.webServer>
+</configuration>
+

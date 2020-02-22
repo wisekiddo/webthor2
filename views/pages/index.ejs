@@ -2,9 +2,9 @@
 
 <html>
 <head>
-  <% include ../partials/header.ejs %>
+    <% include ../partials/header.ejs %>
 
-  <title>WebTorrent & Plyr demo</title>
+    <title>WebTorrent & Plyr demo</title>
 
 
 </head>
@@ -26,8 +26,8 @@
         debug: true
     });
 
-    client.add(torrentId, function(torrent) {
-        var file = torrent.files.find(function(file) {
+    client.add(torrentId, function (torrent) {
+        var file = torrent.files.find(function (file) {
             return file.name.endsWith('.mp4')
         });
         file.renderTo('video', {
