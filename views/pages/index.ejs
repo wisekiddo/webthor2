@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html>
 <head>
   <% include ../partials/header.ejs %>
@@ -15,18 +16,17 @@
 
 <script type="text/javascript">
 
-header('Access-Control-Allow-Origin: https://webthor2.herokuapp.com/');
-//if you need cookies or login etc
-header('Access-Control-Allow-Credentials: true');
 
-//if ($this->getRequestMethod() == 'OPTIONS')
-//{
-  header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS');
-  header('Access-Control-Max-Age: 604800');
-  //if you need special headers
-  header('Access-Control-Allow-Headers: x-requested-with');
-  exit(0);
-//}
+  var request = new XMLHttpRequest();
+  var path="http://www.yahoo.com";
+  request.onreadystatechange=state_change;
+
+  request.open("GET", path, true);
+  request.setRequestHeader("Referer", "http://www.google.com");
+  //request.setRequestHeader("User-Agent", "Mozilla/5.0");
+  request.setRequestHeader("Accept","text/plain");
+  request.setRequestHeader("Content-Type","text/plain");
+
 
 
     var client = new WebTorrent();
