@@ -106,6 +106,8 @@
         console.log('download speed: ' + client.downloadSpeed)
         console.log('progress: ' + (client.progress * 100))
         console.log('done: ' + (client.done * 100))
+        console.log('file: ' + client.file)
+
 
         if (!client.done) {
             document.getElementById("total").innerHTML = "Downloaded: " + Math.round(client.progress * 100) + "%";
