@@ -30,7 +30,7 @@
 <body>
 
 <div style="text-align:center; width:100%; position: fixed; top: 0; left: 0; bottom: 0; right: 0; ">
-    <video id="player" controls ></video>
+    <video id="player" controls></video>
 </div>
 
 <div id="progress">
@@ -57,36 +57,33 @@
 
     let playerControls =
         [
-           // 'play-large', // The large play button in the center
+            // 'play-large', // The large play button in the center
             'restart', // Restart playback
-           // 'rewind', // Rewind by the seek time (default 10 seconds)
+            // 'rewind', // Rewind by the seek time (default 10 seconds)
             'play', // Play/pause playback
-          //  'fast-forward', // Fast forward by the seek time (default 10 seconds)
+            //  'fast-forward', // Fast forward by the seek time (default 10 seconds)
             'progress', // The progress bar and scrubber for playback and buffering
-          //  'current-time', // The current time of playback
-          //  'duration', // The full duration of the media
+            //  'current-time', // The current time of playback
+            //  'duration', // The full duration of the media
             'mute', // Toggle mute
-          //  'volume', // Volume control
-         //   'captions', // Toggle captions
+            //  'volume', // Volume control
+            //   'captions', // Toggle captions
             'settings', // Settings menu
-          //  'pip', // Picture-in-picture (currently Safari only)
+            //  'pip', // Picture-in-picture (currently Safari only)
             'airplay'//, // Airplay (currently Safari only)
-           // 'download'//, // Show a download button with a link to either the current source or a custom URL you specify in your options
+            // 'download'//, // Show a download button with a link to either the current source or a custom URL you specify in your options
             //'fullscreen' // Toggle fullscreen
         ];
 
-    const options = {
+
+
+    const player = new Plyr('#player', {
         autoplay: true,
         playsinline: true,
         clickToPlay: false,
-        controls: playerControls,
         debug: true,
-        loop: { active: true }
-    }
-
-    const player = new Plyr('#player', {
-        options:options
-        //controls: playerControls
+        loop: {active: true},
+        controls: playerControls
     });
 
     client.add(torrentId, function (torrent) {
@@ -101,7 +98,7 @@
         });
     });
 
-   // var fromJs;
+    // var fromJs;
 
     client.on('download', function (bytes) {
         console.log('just downloaded: ' + bytes)
@@ -110,18 +107,15 @@
         console.log('progress: ' + (client.progress * 100))
         console.log('done: ' + (client.done * 100))
 
-        if(!client.done) {
+        if (!client.done) {
             document.getElementById("total").innerHTML = "Downloaded: " + Math.round(client.progress * 100) + "%";
-        }else{
+        } else {
             document.getElementById("total").innerHTML = "Complete";
         }
 
         //fromJs.postMessage("hellowww");
 
     });
-
-
-
 
 
     //document.getElementById("total").innerHTML = hash;
