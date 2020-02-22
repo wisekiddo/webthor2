@@ -21,7 +21,7 @@
 
         div#progress {
             position: absolute;
-            left: 100px;
+            right: 0px;
         }
 
     </style>
@@ -79,7 +79,7 @@
         console.log('download speed: ' + client.downloadSpeed)
         console.log('progress: ' + (client.progress * 100))
 
-        document.getElementById("total").innerHTML = "Downloaded: " + Math.round(client.progress*100) +" %";
+        document.getElementById("total").innerHTML = "Downloaded: " + Math.round(client.progress*100) +"%";
     });
 
     //document.getElementById("total").innerHTML = hash;
