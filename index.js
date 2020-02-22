@@ -1,21 +1,17 @@
 
 const express = require('express');
 const path = require('path');
+const cors = require('cors');
 
 const PORT = process.env.PORT || 5000;
 
 
 let app = express();
 
-var environmentRoot =  require('path').normalize(__dirname );
+app.get('/with-cors', cors(), (req, res, next) => {
+    res.json({ msg: 'WHOAH with CORS it works! 🔝 🎉' })
+})
 
-app.all('*', function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "X-Requested-With");
-    next();
-});
-
-app.use(express.static(environmentRoot + '/public'));
 /*app.get('/products/:id', function (req, res, next) {
     res.json({msg: 'This is CORS-enabled for all origins!'})
 });*/
