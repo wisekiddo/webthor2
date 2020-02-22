@@ -30,7 +30,7 @@
 <body>
 
 <div style="text-align:center; width:100%; position: fixed; top: 0; left: 0; bottom: 0; right: 0; ">
-    <video id="player" controls></video>
+    <video id="player" controls ></video>
 </div>
 
 <div id="progress">
@@ -55,9 +55,29 @@
     //var torrentId = 'magnet:?xt=urn:btih:9EFF2A521DD4F44B057A0C0A550C90A8243D3F17&tr=udp://glotorrents.pw:6969/announce&tr=udp://tracker.opentrackr.org:1337/announce&tr=udp://torrent.gresille.org:80/announce&tr=udp://tracker.openbittorrent.com:80&tr=udp://tracker.coppersurfer.tk:6969&tr=udp://tracker.leechers-paradise.org:6969&tr=udp://p4p.arenabg.ch:1337&tr=udp://tracker.internetwarriors.net:1337&tr=wss://tracker.openwebtorrent.com&tr=wss%3A%2F%2Ftracker.btorrent.xyz&tr=wss%3A%2F%2Ftracker.fastcast.nz&tr=wss%3A%2F%2Ftracker.openwebtorrent.com&tr=wss%3A%2F%2Ftracker.webtorrent.io&ws=https%3A%2F%2Fwebtorrent.io';
     let torrentId = magnetHeader + hash + magnets;
 
+    let playerControls =
+        [
+            'play-large', // The large play button in the center
+            'restart', // Restart playback
+            'rewind', // Rewind by the seek time (default 10 seconds)
+            'play', // Play/pause playback
+            'fast-forward', // Fast forward by the seek time (default 10 seconds)
+            'progress', // The progress bar and scrubber for playback and buffering
+            'current-time', // The current time of playback
+            'duration', // The full duration of the media
+            'mute', // Toggle mute
+            'volume', // Volume control
+            'captions', // Toggle captions
+            'settings', // Settings menu
+            'pip', // Picture-in-picture (currently Safari only)
+            'airplay', // Airplay (currently Safari only)
+            'download', // Show a download button with a link to either the current source or a custom URL you specify in your options
+            'fullscreen' // Toggle fullscreen
+        ];
 
     const player = new Plyr('#player', {
-        debug: true
+        //debug: true,
+        controls: playerControls
     });
 
 
@@ -73,6 +93,8 @@
         });
     });
 
+    var fromJs;
+
     client.on('download', function (bytes) {
         console.log('just downloaded: ' + bytes)
         console.log('total downloaded: ' + client.downloaded)
@@ -85,9 +107,14 @@
         }else{
             document.getElementById("total").innerHTML = "Complete";
         }
+
+        fromJs.postMessage("hellowww");
+
     });
 
-    fromJ
+
+
+
 
     //document.getElementById("total").innerHTML = hash;
 
