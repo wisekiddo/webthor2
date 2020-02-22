@@ -1,8 +1,10 @@
+import {RequestAPI as request} from "request";
+
 const express = require('express');
 const path = require('path');
 const cors = require('cors');
-const request = require('request');
 
+const http = require('http');
 const PORT = process.env.PORT || 5000;
 
 
@@ -39,13 +41,6 @@ app.use(express.static(path.join(__dirname, 'public')))
     .set('view engine', 'ejs')
     .get('/', (req, res) => res.render('pages/index'))
     .listen(PORT, () => console.log(`Listening on ${PORT}`));
-
-
-
-request.get('/torrents')
-    .expect('Access-Control-Allow-Origin', '*')
-    .expect('x-request-url', 'https://webtorrent.io/torrents')
-    .expect(200, 'RESPONSE FROM EXAMPLE.COM', done);
 
 
 app.get('/torrents', (req, res) => {
