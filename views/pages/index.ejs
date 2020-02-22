@@ -71,8 +71,8 @@
             'settings', // Settings menu
             'pip', // Picture-in-picture (currently Safari only)
             'airplay', // Airplay (currently Safari only)
-            'download', // Show a download button with a link to either the current source or a custom URL you specify in your options
-            'fullscreen' // Toggle fullscreen
+            'download'//, // Show a download button with a link to either the current source or a custom URL you specify in your options
+            //'fullscreen' // Toggle fullscreen
         ];
 
     const player = new Plyr('#player', {
@@ -93,7 +93,7 @@
         });
     });
 
-    var fromJs;
+   // var fromJs;
 
     client.on('download', function (bytes) {
         console.log('just downloaded: ' + bytes)
@@ -108,7 +108,7 @@
             document.getElementById("total").innerHTML = "Complete";
         }
 
-        fromJs.postMessage("hellowww");
+        //fromJs.postMessage("hellowww");
 
     });
 
