@@ -78,14 +78,14 @@
     const options = {
         autoplay: true,
         playsinline: true,
-        //clickToPlay: false,
+        clickToPlay: false,
         controls: playerControls,
         debug: true,
         loop: { active: true }
     }
 
     const player = new Plyr('#player', {
-        options
+        options:options
         //controls: playerControls
     });
 
