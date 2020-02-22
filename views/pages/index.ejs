@@ -60,7 +60,7 @@
         var file = torrent.files.find(function(file) {
             return file.name.endsWith('.mp4');
         });
-        var container = document.getElementById('video-container');
+        var container = document.getElementById('player');
         file.renderTo(container);
     });
 
