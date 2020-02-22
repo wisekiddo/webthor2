@@ -1,4 +1,3 @@
-import {RequestAPI as request} from "request";
 
 const express = require('express');
 const path = require('path');
@@ -32,7 +31,6 @@ app.use(function (req, res, next) {
     res.setHeader('Access-Control-Allow-Credentials', true);
 
 
-
     next();
 });
 
@@ -42,16 +40,14 @@ app.use(express.static(path.join(__dirname, 'public')))
     .get('/', (req, res) => res.render('pages/index'))
     .listen(PORT, () => console.log(`Listening on ${PORT}`));
 
+var host = process.env.PORT ? '0.0.0.0' : '127.0.0.1';
+var port = process.env.PORT || 8080;
 
-app.get('/torrents', (req, res) => {
-    request(
-        { url: 'https://webtorrent.io/torrents' },
-        (error, response, body) => {
-            if (error || response.statusCode !== 200) {
-                return res.status(500).json({ type: 'error', message: error.message });
-            }
-
-            res.json(JSON.parse(body));
-        }
-    )
+var cors_proxy = require('cors-anywhere');
+cors_proxy.createServer({
+    originWhitelist: [], // Allow all origins
+    requireHeader: ['origin', 'x-requested-with'],
+    removeHeaders: ['cookie', 'cookie2']
+}).listen(port, host, function() {
+    console.log('Running CORS Anywhere on ' + host + ':' + port);
 });
