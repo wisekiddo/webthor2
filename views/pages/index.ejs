@@ -30,8 +30,7 @@
 <body>
 
 <div style="text-align:center; width:100%; position: fixed; top: 0; left: 0; bottom: 0; right: 0; ">
-    <!--<video id="player" controls></video>-->
-    <video id="video-container" controls="true"></video>
+    <video id="player" controls></video>
 
 </div>
 
@@ -91,10 +90,9 @@
         let file = torrent.files.find(function (file) {
             return file.name.endsWith('.mp4')
         });
-        var container = document.getElementById('video-container');
-
-        file.renderTo(container, {
-            autoplay: true
+        file.renderTo('video', {
+            autoplay: false,
+            muted: true
         }, function callback() {
             console.log("ready to play!");
         });
