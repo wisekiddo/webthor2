@@ -1,26 +1,30 @@
 
 const express = require('express');
 const path = require('path');
-const cors = require('cors');
 
-const http = require('http');
 const PORT = process.env.PORT || 5000;
 
 
 let app = express();
 
+var environmentRoot =  require('path').normalize(__dirname );
 
-app.use(cors());
-
-app.get('/products/:id', function (req, res, next) {
-    res.json({msg: 'This is CORS-enabled for all origins!'})
+app.all('*', function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");
+    next();
 });
+
+app.use(express.static(environmentRoot + '/public'));
+/*app.get('/products/:id', function (req, res, next) {
+    res.json({msg: 'This is CORS-enabled for all origins!'})
+});*/
 
 /*app.listen(80, function () {
     console.log('CORS-enabled web server listening on port 80')
 });*/
 
-app.use(function (req, res, next) {
+/*app.use(function (req, res, next) {
 
     //res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     res.setHeader('Access-Control-Allow-Origin', "https://webthor2.herokuapp.com");
@@ -32,7 +36,7 @@ app.use(function (req, res, next) {
 
 
     next();
-});
+});*/
 
 app.use(express.static(path.join(__dirname, 'public')))
     .set('views', path.join(__dirname, 'views'))
@@ -41,11 +45,5 @@ app.use(express.static(path.join(__dirname, 'public')))
     .listen(PORT, () => console.log(`Listening on ${PORT}`));
 
 
-var cors_proxy = require('cors-anywhere');
-cors_proxy.createServer({
-    originWhitelist: ['https://webtorrent.io/torrents'], // Allow all origins
-    requireHeader: ['origin', 'x-requested-with'],
-    removeHeaders: ['cookie', 'cookie2']
-});
 
 //https://webtorrent.io/torrents
