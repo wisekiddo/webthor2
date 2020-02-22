@@ -12,18 +12,21 @@
             padding: 0;
             background-color: #000000;
         }
-
-
-        video {
-            display: block;
-            margin: auto;
+        .video-player {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
     </style>
 </head>
 
 <body>
-<video id="player" controls></video>
+<div class="video-player">
+    <video id="player" controls></video>
+
+</div>
 
 </body>
 
