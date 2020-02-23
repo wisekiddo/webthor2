@@ -103,7 +103,7 @@
             return file.name.endsWith('.mp4')
         });
         file.renderTo('video', {
-            autoplay: true,
+            autoplay: false,
             muted: false
         }, function callback() {
             console.log("ready to play! " + file);
