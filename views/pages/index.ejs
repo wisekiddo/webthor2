@@ -141,6 +141,15 @@
 
     })
 
+    client.on('done', function(){
+        console.log('torrent finished downloading')
+        client.files.forEach(function(file){
+            document.getElementById("total").innerHTML = "Complete" + file.path;
+
+            console.log('path: ' + (client.path))
+        })
+    })
+
 
     //document.getElementById("total").innerHTML = hash;
 
