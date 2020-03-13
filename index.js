@@ -18,11 +18,6 @@ app.use(function(req, res, next) {
 
 // Using Node.js
 
-const AwakeHeroku = require('awake-heroku');
-
-const awakeHeroku1 = new AwakeHeroku("webthor","1600000")
-
-const awakeHeroku2 = new AwakeHeroku("toolbonetube","1600000")
 
 
 //your-app-name.herokuapp.com
@@ -30,9 +25,6 @@ const awakeHeroku2 = new AwakeHeroku("toolbonetube","1600000")
 //period-time : it's time you want to wakeup your heroku app
 
 //Start auto wakeup
-
-awakeHeroku1.start();
-awakeHeroku2.start();
 
 
 
